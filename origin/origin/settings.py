@@ -130,3 +130,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+NOSE_ARGS = ['--nocapture',
+             '--nologcapture',]

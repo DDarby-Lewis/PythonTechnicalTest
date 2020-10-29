@@ -3,13 +3,12 @@ from django.contrib.auth.models import User
 from .models import Bond
 import requests
 import urllib
-from pprint import pprint
 
 # add serialisers here
 
 class BondSerializer(serializers.ModelSerializer):
+    # user = serializers.ReadOnlyField(source='user.username')
     def create(self, validated_data):
-        pprint(self)
         if 'legal_name' not in validated_data:
             url = "https://leilookup.gleif.org/api/v2/leirecords?lei="+validated_data['lei']
             legal_name = requests.get(url).json()[0]['Entity']['LegalName']['$']
