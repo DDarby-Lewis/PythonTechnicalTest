@@ -19,3 +19,9 @@ class BondSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bond
         fields = ( 'isin', 'size', 'maturity', 'currency', 'lei', 'legal_name') 
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'bonds']
